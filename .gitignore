@@ -1,3 +1,7 @@
 src/*
 !src/.gtikeep
 *.swp
+.dev_builds
+config/dev.yml
+dev_releases
+
