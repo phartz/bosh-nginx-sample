@@ -36,11 +36,13 @@ I expect there is a running bosh instance and the target and login process are c
 
 ## Now deploy the example
 1. Get the UUID from the bosh director and edit the manifest file.
-'''bosh status'''
+```
+bosh status
+```
 
-'''
+```
 Config
-             /Users/phartz/.bosh_config
+        /Users/phartz/.bosh_config
 
 Director
   Name       Bosh Lite Director
@@ -54,5 +56,5 @@ Director
   snapshots  disabled
 
 Deployment
-'''
+```
 
