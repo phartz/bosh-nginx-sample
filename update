@@ -1,0 +1,27 @@
+#!/bin/bash
+
+PCRE_VERSION="8.38" # 06/14/2016
+PCRE_TARBALL_DIR=src/pcre_${PCRE_VERSION}
+PCRE_TARBALL_FILE=${PCRE_TARBALL_DIR}/pcre-${PCRE_VERSION}.tar.gz
+PCRE_TARBALL_DOWNLOAD_URL=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.gz
+
+if [ ! -f ${PCRE_TARBALL_FILE} ]; then
+  mkdir -p ${PCRE_TARBALL_DIR}
+  echo "Downloading PCRE version ${PCRE_VERSION} tarball"
+  wget ${PCRE_TARBALL_DOWNLOAD_URL} -O ${PCRE_TARBALL_FILE}
+else
+  echo "Detected PCRE tarball. Not downloading."
+fi
+
+NGINX_VERSION="1.10.0" # 06/10/2016
+NGINX_TARBALL_DIR=src/nginx_${NGINX_VERSION}
+NGINX_TARBALL_FILE=${NGINX_TARBALL_DIR}/nginx-${NGINX_VERSION}.tar.gz
+NGINX_TARBALL_DOWNLOAD_URL=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+
+if [ ! -f ${NGINX_TARBALL_FILE} ]; then
+  mkdir -p ${NGINX_TARBALL_DIR}
+  echo "Downloading NGINX version ${NGINX_VERSION} tarball"
+  wget ${NGINX_TARBALL_DOWNLOAD_URL} -O ${NGINX_TARBALL_FILE}
+else
+  echo "Detected NGINX tarball. Not downloading."
+fi
