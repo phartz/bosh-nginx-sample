@@ -1,0 +1,22 @@
+# abort script on any command that exits with a non zero value
+set -e
+
+tar -zxf pcre-8.38.tar.gz
+pushd pcre-8.38
+  ./configure
+
+  make
+  make install
+popd
+
+tar -zxf nginx-1.10.0.tar.gz
+pushd nginx-1.10
+  ./configure \
+    --prefix=$BOSH_INSTALL_TARGET
+    --with-prce=../prce-8.38
+
+  make
+  make install
+popd
+
+
