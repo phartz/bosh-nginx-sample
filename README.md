@@ -37,3 +37,22 @@ I expect there is a running bosh instance and the target and login process are c
 ## Now deploy the example
 1. Get the UUID from the bosh director and edit the manifest file.
 '''bosh status'''
+
+'''
+Config
+             /Users/phartz/.bosh_config
+
+Director
+  Name       Bosh Lite Director
+  URL        https://192.168.50.4:25555
+  Version    1.3232.2.0 (00000000)
+  User       admin
+  UUID       93c01d2d-a2a5-49d8-8d02-389fd223a9cf
+  CPI        warden_cpi
+  dns        disabled
+  compiled_package_cache enabled (provider: local)
+  snapshots  disabled
+
+Deployment
+'''
+
