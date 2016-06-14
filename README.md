@@ -15,7 +15,8 @@ I expect there is a running bosh instance and the target and login process are c
 └── src
 ```
 * In my example I'm using a script to put the source files into the src subfolder. See the [`update`](https://github.com/phartz/bosh-nginx-sample/blob/master/update) file.
-A simple nginx server needs only one job to work. To create a new job use `bosh generate job nginx`. ([docu](http://bosh.io/docs/jobs.html))
+
+* A simple nginx server needs only one job to work. To create a new job use `bosh generate job nginx`. ([docu](http://bosh.io/docs/jobs.html))
 ```
 ├── jobs
     └── nginx
@@ -30,4 +31,9 @@ A simple nginx server needs only one job to work. To create a new job use `bosh 
 * After creating the jobs, the packages are needed. Use `bosh generate package nginx` to generate it. ([docu](http://bosh.io/docs/packages.html))
   * The file ['packaging'](https://github.com/phartz/bosh-nginx-sample/blob/master/packages/nginx/packaging) contains the steps to compile and install the package.
   * Use the ['spec'](https://github.com/phartz/bosh-nginx-sample/blob/master/packages/nginx/spec) file to specify the dependencies for the packages.
-* Now it's time to create the manifest.yml
+  
+* Now it's time to create the 'manifest.yml'. Against the rules of PaaS, in this version of bosh, the manifest files depends in some points on the underliying infrastructure. F.e. the network and ressource pool, depends on the platform.  [`manifest.yml` for bosh lite](https://github.com/phartz/bosh-nginx-sample/blob/master/examples/manifest_bosh_lite.yml)
+
+## Now deploy the example
+1. Get the UUID from the bosh director and edit the manifest file.
+'''bosh status'''
