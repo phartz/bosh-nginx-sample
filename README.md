@@ -35,12 +35,12 @@ I expect there is a running bosh instance and the target and login process are c
 * Now it's time to create the 'manifest.yml'. Against the rules of PaaS, in this version of bosh, the manifest files depends in some points on the underliying infrastructure. F.e. the network and ressource pool, depends on the platform.  [`manifest.yml` for bosh lite](https://github.com/phartz/bosh-nginx-sample/blob/master/examples/manifest_bosh_lite.yml)
 
 ## Now deploy the example
-1. Get the UUID from the bosh director and edit the manifest file.
+### Get the UUID from the bosh director and edit the manifest file.
 ```
-bosh status
+$ bosh status
 ```
 
-```
+```bash
 Config
         /Users/phartz/.bosh_config
 
@@ -57,4 +57,13 @@ Director
 
 Deployment
 ```
+### Set manifest file 
+```
+$ bosh deployment ./examples/manifest_bosh_lite.yml
+```
 
+```
+Deployment set to '/Users/phartz/bosh/workspace/samples/bosh-nginx-sample/examples/manifest_bosh_lite.yml'
+```
+
+### Create release
