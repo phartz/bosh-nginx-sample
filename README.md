@@ -67,3 +67,29 @@ Deployment set to '/Users/phartz/bosh/workspace/samples/bosh-nginx-sample/exampl
 ```
 
 ### Create release
+````
+$ bosh create release --force
+```
+
+```
+...
+Release name: dev
+Release version: 0+dev.1
+Release manifest: /Users/phartz/bosh/workspace/samples/bosh-nginx-sample/dev_releases/dev/dev-0+dev.1.yml
+```
+
+### Upload release
+And now upload it.
+````
+$ bosh upload release
+```
+
+### Deploy release
+With bosh lite it is possible an error occours while deploying a release `...permission denied @ dir_s_mkdir...`.
+There is a misconfiguration in the bosh VM. Execute this in the bosh lite vm itself `sudo chown -cR vcap:vcap /vagrant/`.
+
+### Done
+That's it! 
+Possibly you have to run the `add-route.bat` in the bosh-lite binary folder.
+
+With `curl 10.244.0.2` you should be able to reach the nginx server.
