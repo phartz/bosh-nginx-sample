@@ -85,7 +85,7 @@ $ bosh upload release
 ```
 
 ### Deploy release
-With bosh lite it is possible an error occours while deploying a release `...permission denied @ dir_s_mkdir...`.
+With bosh lite it is possible an error occours while deploying a release [`...permission denied @ dir_s_mkdir...`](https://www.evoila.de/2015/04/27/howto-fix-bosh-lite-deployment-with-error-error-100-permission-denied-dir_s_mkdir-vagranttmp/?lang=en).
 There is a misconfiguration in the bosh VM. Execute this in the bosh lite vm itself `sudo chown -cR vcap:vcap /vagrant/`.
 
 ### Done
