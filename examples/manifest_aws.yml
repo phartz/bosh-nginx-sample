@@ -1,0 +1,55 @@
+---
+name: bosh-nginx
+director_uuid: 7bdb0c98-f8f0-4d30-be51-3f4b63d90dbb
+
+releases:
+- name: nginx
+  version: latest
+
+networks:
+- name: default
+  type: manual
+  subnets:
+  - range: 10.0.0.0/24
+    gateway: 10.0.0.1
+    static: [10.0.0.2]
+    reserved: [10.0.0.3]
+    cloud_properties:
+      subnet: subnet-66f7063e
+      security_groups: [ph-bosh]
+
+resource_pools:
+- name: default
+  network: default
+  stemcell:
+    name: bosh-aws-xen-ubuntu-trusty-go_agent
+    version: latest
+  cloud-properties:
+    instance_type: m3.medium 
+    availability_zone: eu-west-1a
+
+compilation:
+  workers: 1
+  network: default
+  cloud_properties: 
+    instance_type: m3.medium 
+    availability_zone: eu-west-1a
+
+update:
+  canaries: 1
+  canary_watch_time: 60000
+  update_watch_time: 60000
+  max_in_flight: 2
+
+jobs:
+- name: nginx
+  templates:
+  - name: nginx
+  instances: 1
+  resource_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.0.0.2
+  properties: {}
+
