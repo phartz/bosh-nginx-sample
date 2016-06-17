@@ -12,8 +12,7 @@ networks:
   subnets:
   - range: 10.0.0.0/24
     gateway: 10.0.0.1
-    static: [10.0.0.2]
-    reserved: [10.0.0.3]
+    static: [10.0.0.4]
     cloud_properties:
       subnet: subnet-66f7063e
       security_groups: [ph-bosh]
@@ -24,7 +23,7 @@ resource_pools:
   stemcell:
     name: bosh-aws-xen-ubuntu-trusty-go_agent
     version: latest
-  cloud-properties:
+  cloud_properties:
     instance_type: m3.medium 
     availability_zone: eu-west-1a
 
@@ -50,6 +49,6 @@ jobs:
   networks:
   - name: default
     static_ips:
-    - 10.0.0.2
+    - 10.0.0.4
   properties: {}
 
