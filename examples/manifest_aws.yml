@@ -16,6 +16,9 @@ networks:
     cloud_properties:
       subnet: subnet-66f7063e
       security_groups: [ph-bosh]
+- name: public
+  type: vip
+  cloud_properties: {}
 
 resource_pools:
 - name: default
@@ -48,7 +51,9 @@ jobs:
   resource_pool: default
   networks:
   - name: default
-    static_ips:
-    - 10.0.0.4
+    static_ips: [10.0.0.4]
+    default: [gateway, dns]
+  - name: public
+    static_ips: [52.51.163.20]
   properties: {}
 
