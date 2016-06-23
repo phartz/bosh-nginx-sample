@@ -93,6 +93,9 @@ There is a misconfiguration in the bosh VM. Execute this in the bosh lite vm its
 
 ### Done
 That's it! 
-Possibly you have to run the `add-route.bat` in the bosh-lite binary folder.
-
 With `curl 10.244.0.2` you should be able to reach the nginx server.
+
+### Remarks
+Possibly you have to run `add-route.bat` in the bosh-lite binary folder.
+
+
