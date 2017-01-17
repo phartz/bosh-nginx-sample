@@ -1,6 +1,6 @@
 ---
 name: bosh-nginx
-director_uuid: 7bdb0c98-f8f0-4d30-be51-3f4b63d90dbb
+director_uuid: fb70f16a-4d6f-41f8-bc2e-0181a03dff18
 
 releases:
 - name: nginx
