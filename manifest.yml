@@ -10,12 +10,9 @@ networks:
 - name: default
   type: manual
   subnets:
-  - range: 10.0.0.0/24
-    gateway: 10.0.0.1
-    static: [10.0.0.4]
-    cloud_properties:
-      subnet: subnet-66f7063e
-      security_groups: [ph-bosh]
+  - range: 10.244.8.0/24
+    gateway: 10.244.8.1
+    static: [10.244.8.5]
 - name: public
   type: vip
   cloud_properties: {}
@@ -24,18 +21,15 @@ resource_pools:
 - name: default
   network: default
   stemcell:
-    name: bosh-aws-xen-ubuntu-trusty-go_agent
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
     version: latest
-  cloud_properties:
-    instance_type: m3.medium 
-    availability_zone: eu-west-1a
+  cloud_properties: {}
 
 compilation:
   workers: 1
   network: default
-  cloud_properties: 
-    instance_type: m3.medium 
-    availability_zone: eu-west-1a
+  cloud_properties:
+    instance_type: {}
 
 update:
   canaries: 1
@@ -51,9 +45,6 @@ jobs:
   resource_pool: default
   networks:
   - name: default
-    static_ips: [10.0.0.4]
+    static_ips: [10.244.8.5]
     default: [gateway, dns]
-  - name: public
-    static_ips: [52.51.163.20]
   properties: {}
-

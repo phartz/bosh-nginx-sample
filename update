@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PCRE_VERSION="8.38" # 06/14/2016
+PCRE_VERSION="8.40" # 06/14/2016
 PCRE_TARBALL_DIR=src/pcre_${PCRE_VERSION}
 PCRE_TARBALL_FILE=${PCRE_TARBALL_DIR}/pcre-${PCRE_VERSION}.tar.gz
 PCRE_TARBALL_DOWNLOAD_URL=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.gz

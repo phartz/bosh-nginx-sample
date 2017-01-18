@@ -1,9 +1,9 @@
 # abort script on any command that exits with a non zero value
 set -e
 
-tar -zxf pcre_8.38/pcre-8.38.tar.gz
-pushd pcre-8.38
-  ./configure 
+tar -zxf pcre_8.40/pcre-8.40.tar.gz
+pushd pcre-8.40
+  ./configure
 
   make
   make install
@@ -13,10 +13,8 @@ tar -zxf nginx_1.10.0/nginx-1.10.0.tar.gz
 pushd nginx-1.10.0
   ./configure \
     --prefix=$BOSH_INSTALL_TARGET \
-    --with-pcre=../pcre-8.38
+    --with-pcre=../pcre-8.40
 
   make
   make install
 popd
-
-

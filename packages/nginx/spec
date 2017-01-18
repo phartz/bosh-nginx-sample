@@ -5,4 +5,4 @@ dependencies:
 
 files:
 - nginx_1.10.0/nginx-1.10.0.tar.gz
-- pcre_8.38/pcre-8.38.tar.gz
+- pcre_8.40/pcre-8.40.tar.gz

@@ -4,4 +4,4 @@ src/*
 .dev_builds
 config/dev.yml
 dev_releases
-
+manifest.yml
